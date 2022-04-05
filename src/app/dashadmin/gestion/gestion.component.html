@@ -1,0 +1,77 @@
+<!-- Auteur: Alaeddine boubaker  -->
+<!-- FrontEnd: Employer Manangment  -->
+<!-- Site: https://aladinbk.000webhostapp.com/  -->
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<main id="main" class="main">
+<div class="pagetitle">
+<h1>Gestion des employées</h1>
+<nav>
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="#">Home</a></li>
+<li class="breadcrumb-item">Dashboard</li>
+<li class="breadcrumb-item active">Employées</li>
+</ol>
+</nav>
+</div><!-- End Page Title -->
+<section class="section">
+  <div class="row">
+    <div class="col-lg-12">
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Liste des employées</h5>
+
+          <!-- Table with stripped rows -->
+          <table class="table datatable">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Username</th>
+                <th scope="col">Téléphone</th>
+                <th scope="col">Rôle</th>
+                <th scope="col">Département</th>
+                <th scope="col">Actions</th>
+                <th scope="col"></th>
+                
+              </tr>
+            </thead>
+            <tbody *ngIf="employees">
+              <tr *ngFor="let e of employees.content">
+                <th scope="row">#{{e.id_employer}}</th>
+                <td>{{e.nom}}</td>
+                <td>{{e.prenom}}</td>
+                <td>{{e.username}}</td>
+                <td>{{e.telephone}}</td>
+                <td><div *ngFor="let b of e.roles">{{b.nom_roles}}</div></td>
+                <td><div *ngFor="let c of e.departements">{{c.nom_departement}}</div></td>
+                <td><button type="button" class="btn btn-outline-info" (click)="updateemployer(e.id_employer)">Modifier</button></td>
+                <td><button type="submit" class="btn btn-outline-danger" (click)="supprimer(e.id_employer)">supprimer</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- End Table with stripped rows -->
+          <nav>
+          <ul *ngIf="pages" class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li [ngClass]="i==currentPage?'active':''" *ngFor="let p of pages; let i=index" class="page-item">
+              <a (click)="onPageEmp(i)" class="page-link">{{i}}</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+          </nav>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+</main><!-- End #main -->
+<app-footer></app-footer>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<!-- Auteur: Alaeddine boubaker  -->
+<!-- FrontEnd: Employer Manangment  -->
+<!-- Site: https://aladinbk.000webhostapp.com/  -->

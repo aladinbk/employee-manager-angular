@@ -1,0 +1,158 @@
+<!-- Auteur: Alaeddine boubaker  -->
+<!-- FrontEnd: Employer Manangment  -->
+<!-- Site: https://aladinbk.000webhostapp.com/  -->
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>Demander un congé</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active">Dashboard</li>
+        <li class="breadcrumb-item active">Congé</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section dashboard">
+    <div class="row">
+
+      <!-- Left side columns -->
+      <div class="col-lg-12">
+        <div class="row">        
+
+          <!-- Recent Sales -->
+          <div class="col-12">
+            <div class="card recent-sales overflow-auto">
+
+              <div class="card-body">
+                <h5 class="card-title">Demander un congé</h5>
+                
+
+                   <div class="col-md-12">
+                     <div class="note">
+                       <h4 style="color: crimson;text-align: left"> Notes: </h4>
+                       <div class="note-text">
+                         <p> - les conditions citez en dessous sont appliqué :</p>
+                         <p>* le premier jour et la derniere jour sont inclut dans la congé.</p>
+                         
+                       </div>
+                     </div>
+                   </div>
+
+
+                  <!-- Vertical Form -->
+       <form #f="ngForm" class="row g-3" (ngSubmit)="f.form.valid && demander(f.value)">
+         <div class="form-group">
+         <div class="col-6">
+           <label class="form-label"><b>Type :</b></label>
+           <select  class="form-select" name="type" [(ngModel)]="type">
+             <option selected>Choose...</option>
+             <option value="maladie">Maladie</option>
+             <option value="mariage">Mariage</option>
+             <option value="deces">Déces</option>
+           </select>
+         </div>
+       </div>
+       <div class="form-group has-feedback">
+         <div class="col-6">
+           <label  class="form-label"><b>Date Debut :</b></label>
+           <input type="date" class="form-control" required name="dateDebut" [(ngModel)]="dateDebut">
+           <small class="text-danger" *ngIf="f.submitted">
+             DateDebut requis
+           </small>
+         </div>
+       </div>
+       <div class="form-group has-feedback">
+       <div class="col-6">
+           <label  class="form-label"><b>Date Fin :</b></label>
+           <input type="date" class="form-control" required name="dateFin" [(ngModel)]="dateFin">
+           <small class="text-danger" *ngIf="f.submitted">
+             DateFin requis
+           </small>
+         </div>
+       </div>
+       <div class="form-group has-feedback">
+       <div class="col-6">
+           <label  class="form-label"><b>Description :</b></label>
+           <textarea  class="form-control" required name="description" ngModel></textarea>
+           <small class="text-danger" *ngIf="f.submitted">
+             Description requis
+           </small>
+         </div>
+       </div>
+       <section id="invoice" class="invoice">
+          <div class="col-sm-4 invoice-col">
+            <br>
+            <br>
+            <b>Nom & prénom :</b> {{user.nom}} {{user.prenom}}<br>
+            <b>Adresse :</b> {{user.adresse}}<br>
+            <b>Téléphone : </b>{{user.telephone}}<br>
+            
+            <br>
+           <b> Objet : Demande de prise de congés</b><br>
+           Madame, Monsieur,<br>
+           Par la présente je vous informe que je souhaite bénéficier de congés du {{dateDebut | date: 'dd/MM/yyyy'}} au {{dateFin | date: 'dd/MM/yyyy'}} à cause du {{type}}.<br>
+           Je reste bien entendu à votre disposition pour tout renseignement complémentaire.<br>
+
+           Dans l'attente de votre accord, je vous prie d'agréer, Madame, Monsieur, mes salutations distinguées.<br>
+           
+           Cordialement,<br>
+
+           [{{user.nom}} {{user.prenom}}]
+           
+            
+   
+  
+  
+          </div>
+
+
+        </section>
+         
+         <div class="text-center">
+           <button [useExistingCss]="true"
+            printSectionId="invoice" ngxPrint type="submit" class="btn btn-primary" >Submit</button>
+           <button type="reset" class="btn btn-secondary">Reset</button>
+         </div>
+       </form><!-- Vertical Form -->
+
+              </div>
+
+            </div>
+          </div><!-- End Recent Sales -->
+
+          <!-- Top Selling -->
+          <div class="col-12">
+            <div class="card top-selling overflow-auto">
+
+              <div class="filter">
+                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                  <li class="dropdown-header text-start">
+                    <h6>Filter</h6>
+                  </li>
+
+                  <li><a class="dropdown-item" href="#">Today</a></li>
+                  <li><a class="dropdown-item" href="#">This Month</a></li>
+                  <li><a class="dropdown-item" href="#">This Year</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div><!-- End Top Selling -->
+
+        </div>
+      </div><!-- End Left side columns -->
+
+    
+    </div>
+  </section> 
+
+</main><!-- End #main -->
+<app-footer></app-footer>
+<!-- Auteur: Alaeddine boubaker  -->
+<!-- FrontEnd: Employer Manangment  -->
+<!-- Site: https://aladinbk.000webhostapp.com/  -->

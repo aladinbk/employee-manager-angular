@@ -1,0 +1,78 @@
+<!-- Auteur: Alaeddine boubaker  -->
+<!-- FrontEnd: Employer Manangment  -->
+<!-- Site: https://aladinbk.000webhostapp.com/  -->
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<main id="main" class="main">
+<div class="pagetitle">
+        <h1>Liste des congées</h1>
+        <nav>
+        <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item">Dashboard</li>
+        <li class="breadcrumb-item active">Congées</li>
+        </ol>
+        </nav>
+</div><!-- End Page Title -->
+<section class="section">
+  <div class="row">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Liste des Congées</h5>
+   
+                      <!-- Table with stripped rows -->
+          <table class="table datatable">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Code employée</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Date début</th>
+                  <th scope="col">Date fin</th>
+                  <th scope="col">Nb Jours</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Actions</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody *ngIf="conges">
+                <tr *ngFor="let conge of conges.content">
+                  <th scope="row">{{conge.idC}}</th>
+                  <td>{{conge.description}}</td>
+                  <td>{{conge.id_employer}}</td>
+                  <td>{{conge.type}}</td>
+                  <td>{{conge.dateDebut | date: 'dd/MM/yyyy'}}</td>
+                  <td>{{conge.dateFin | date: 'dd/MM/yyyy'}}</td>
+                  <td>{{conge.dure}}</td>
+                  
+                  <td *ngIf="conge.status==0"><span class="badge bg-warning">{{conge.status}}</span></td>
+                   <td *ngIf="conge.status==1"><span class="badge bg-success">{{conge.status}}</span></td>
+                  <td><button type="button" class="btn btn-outline-info"(click)="updateconge(conge.idC)">Modifier</button></td>
+                  <td><button type="submit" class="btn btn-outline-danger" (click)="supprimer(conge.idC)">supprimer</button></td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- End Table with stripped rows -->
+            <nav>
+                <ul *ngIf="pages" class="pagination">
+                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                  <li [ngClass]="i==currentPage?'active':''" *ngFor="let p of pages; let i=index" class="page-item">
+                    <a (click)="onPageCong(i)" class="page-link">{{i}}</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+                </nav>
+
+
+        
+
+      </div>
+    </div>
+  </div>
+</section>
+</main><!-- End #main -->
+<app-footer></app-footer>
+<!-- Auteur: Alaeddine boubaker  -->
+<!-- FrontEnd: Employer Manangment  -->
+<!-- Site: https://aladinbk.000webhostapp.com/  -->

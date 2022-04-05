@@ -1,0 +1,91 @@
+<!-- Auteur: Alaeddine boubaker  -->
+<!-- FrontEnd: Employer Manangment  -->
+<!-- Site: https://aladinbk.000webhostapp.com/  -->
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<main id="main" class="main">
+<div class="pagetitle">
+        <h1>Ajouter un employée</h1>
+        <nav>
+        <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item">Dashboard</li>
+        <li class="breadcrumb-item active">Ajouter un employée</li>
+        </ol>
+        </nav>
+</div><!-- End Page Title -->
+<section class="section">
+  <div class="row">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">New Employée</h5>
+
+        <!-- Vertical Form -->
+        <form class="row g-3">
+          <div class="col-6">
+            <label class="form-label"><b>Nom :</b></label>
+            <input type="text" class="form-control"  required name="nom" [(ngModel)]="employee.nom">
+          </div>
+          <div class="col-6">
+            <label class="form-label"><b>Prénom :</b></label>
+            <input type="text" class="form-control"  required name="prenom" [(ngModel)]="employee.prenom">
+          </div>
+          <div class="col-6">
+            <label  class="form-label"><b>E-mail :</b></label>
+            <input type="email" class="form-control" required name="email" [(ngModel)]="employee.email">
+          </div>
+          <div class="col-6">
+            <label  class="form-label"><b>Adresse :</b></label>
+            <input type="text" class="form-control" required name="adresse" [(ngModel)]="employee.adresse">
+          </div>
+          <div class="col-6">
+            <label  class="form-label"><b>Télephone :</b></label>
+            <input type="text" class="form-control" required name="telephone" [(ngModel)]="employee.telephone">
+          </div>
+          <div class="col-6">
+            <label class="form-label"><b>Username :</b></label>
+            <input type="text" class="form-control"  required name="username" [(ngModel)]="employee.username">
+          </div>
+          <div class="col-6">
+            <label class="form-label"><b>Password :</b></label>
+            <input type="password" class="form-control"  required name="password" [(ngModel)]="employee.password">
+          </div>
+          <div class="col-6">
+            <label class="form-label"><b>Grade :</b></label>
+            <input type="text" class="form-control"  required name="grade" [(ngModel)]="employee.grade">
+          </div>
+          <div class="col-6">
+            <label class="form-label"><b>Rôle :</b></label>
+            <select  class="form-select" name="id_roles" [(ngModel)]="id_roles">
+              <option selected>Choose...</option>
+              <option value="1">Admin</option>
+              <option value="2">Employee</option>
+            </select>
+          </div>
+          <div class="col-6">
+            <label class="form-label"><b>Département :</b></label>
+            <select  class="form-select" name="id_departement" [(ngModel)]="id_departement">
+              <option selected>Choose...</option>
+              <option value="1">Administration</option>
+              <option value="2">RH</option>
+              <option value="3">Marketing</option>
+              <option value="4">Logistique</option>
+            </select>
+          </div>
+
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" (click)="register()">Submit</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+          </div>
+        </form><!-- Vertical Form -->
+
+      </div>
+    </div>
+  </div>
+</section>
+</main><!-- End #main -->
+<app-footer></app-footer>
+<!-- Auteur: Alaeddine boubaker  -->
+<!-- FrontEnd: Employer Manangment  -->
+<!-- Site: https://aladinbk.000webhostapp.com/  -->
